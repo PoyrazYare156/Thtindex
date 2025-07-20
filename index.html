@@ -6,18 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HACKED BY ANKA RED TEAM</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
       height: 100%;
       background: radial-gradient(circle, #000000 0%, #0a0a0a 100%);
       font-family: 'Courier New', Courier, monospace;
-      color: #00ff00;
       overflow: hidden;
+      color: #00ff00;
     }
 
     canvas {
@@ -31,15 +27,14 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding-top: 60px;
-      color: white;
+      padding-top: 50px;
     }
 
     .logo {
       width: 180px;
-      margin-bottom: 20px;
       filter: drop-shadow(0 0 10px red);
       animation: pulse 2s infinite;
+      margin-bottom: 20px;
     }
 
     @keyframes pulse {
@@ -64,9 +59,9 @@
     }
 
     .terminal-box {
-      margin: 40px auto 0;
       width: 80%;
       max-width: 800px;
+      margin: 30px auto 0;
       background-color: rgba(0, 0, 0, 0.8);
       padding: 20px;
       border: 1px solid #00ff00;
@@ -95,18 +90,29 @@
     @keyframes blink {
       50% { background-color: transparent; }
     }
+
+    #ascii-art {
+      color: #00ff00;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+      white-space: pre;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Matrix Canvas -->
   <canvas id="matrix"></canvas>
 
+  <!-- Sayfa İçeriği -->
   <div class="container">
     <img src="https://i.hizliresim.com/2x1os93.png" class="logo" alt="Anka Logo" />
     <div class="glitch">HACKED BY ANKA RED TEAM</div>
 
+    <!-- Terminal -->
     <div class="terminal-box" id="terminalBox">
-      <span class="line" id="line1">[+] Sistem taranıyor...</span>
+      <span class="line" id="line1">[+] Bağlantı başlatılıyor...</span>
       <span class="line" id="line2"></span>
       <span class="line" id="line3"></span>
       <span class="line" id="line4"></span>
@@ -115,23 +121,24 @@
       <span class="line" id="line7"></span>
       <span class="line" id="cursorLine"><span class="cursor"></span></span>
     </div>
+
+    <!-- ASCII Animasyon -->
+    <pre id="ascii-art"></pre>
   </div>
-  
-<pre id="ascii-art" style="color: #00ff00; text-align: center; margin-top: 20px; font-size: 12px;">
-</pre>
 
-
+  <!-- Ses -->
   <audio autoplay loop>
     <source src="https://www.myinstants.com/media/sounds/hackerman.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- JS: Matrix + Terminal + ASCII -->
   <script>
+    // Matrix animasyonu
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-
-    const chars = '01アカサタナハマヤラワ0123456789'.split('');
+    const chars = '01アカサタナハマヤラワ'.split('');
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
@@ -141,27 +148,24 @@
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#00FF00';
       ctx.font = fontSize + 'px monospace';
-
       for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
     }
-
     setInterval(drawMatrix, 33);
 
+    // Terminal efektleri
     const steps = [
-      '[+] Hedef IP: 10.0.0.13',
-      '[+] Bağlantı noktaları taranıyor...',
+      '[+] Hedef IP: 192.168.1.1',
+      '[+] Port taraması başlatılıyor...',
       '[OPEN] 21/tcp - FTP',
+      '[OPEN] 22/tcp - SSH',
       '[OPEN] 80/tcp - HTTP',
-      '[+] Güvenlik açığı bulundu: CVE-2023-XXXXX',
-      '[+] Yetkili erişim sağlandı!',
-      '[!] Anka Red Team bağlantıyı ele geçirdi!'
+      '[+] Güvenlik açığı tespit edildi: CVE-2023-XXXXX',
+      '[+] Yetkili erişim sağlandı! Anka Red Team bağlantıyı ele geçirdi!'
     ];
 
     function typeLine(text, elementId, delay) {
@@ -179,34 +183,32 @@
     steps.forEach((text, index) => {
       typeLine(text, `line${index + 2}`, 1000 + index * 1000);
     });
-  
-  const asciiFrames = [
-    `
-      /\_/\  
+
+    // ASCII animasyon
+    const asciiFrames = [
+      `
+      /\\_/\\  
      ( o.o ) 
       > ^ <
-    `,
-    `
-      /\_/\  
+      `,
+      `
+      /\\_/\\  
      ( -.- ) 
       > ^ <
-    `,
-    `
-      /\_/\  
+      `,
+      `
+      /\\_/\\  
      ( o_o ) 
       > ^ <
-    `
-  ];
-
-  let currentFrame = 0;
-  const asciiArt = document.getElementById('ascii-art');
-
-  setInterval(() => {
-    asciiArt.textContent = asciiFrames[currentFrame];
-    currentFrame = (currentFrame + 1) % asciiFrames.length;
-  }, 500);
-
-</script>
+      `
+    ];
+    let currentFrame = 0;
+    const asciiArt = document.getElementById('ascii-art');
+    setInterval(() => {
+      asciiArt.textContent = asciiFrames[currentFrame];
+      currentFrame = (currentFrame + 1) % asciiFrames.length;
+    }, 500);
+  </script>
 
 </body>
 </html>
