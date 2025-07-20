@@ -4,57 +4,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HACKED BY ANKA RED TEAM</title>
+  <title>ANKA RED TEAM</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: radial-gradient(circle, #000000 0%, #0a0a0a 100%);
       font-family: 'Courier New', Courier, monospace;
-      overflow: hidden;
       color: #00ff00;
+      background: url('73CC859E-72FF-4F71-9937-D02BB5BF1942.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
     }
 
-    .container {
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 1;
+    }
+
+    .content {
       position: relative;
       z-index: 2;
       text-align: center;
-      padding-top: 50px;
-    }
-
-    .logo {
-      width: 180px;
-      filter: drop-shadow(0 0 10px red);
-      animation: pulse 2s infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      padding-top: 10%;
+      color: red;
     }
 
     .glitch {
-      font-size: 40px;
-      color: red;
-      animation: glitch 1.5s infinite;
+      font-size: 38px;
+      animation: glitch 1.2s infinite;
       text-shadow: 0 0 5px red;
     }
 
     @keyframes glitch {
-      0%, 100% { text-shadow: 2px 2px #ff0000; }
-      20% { text-shadow: -2px -2px #ff4444; }
-      40% { text-shadow: 2px -2px #ff0000; }
-      60% { text-shadow: -2px 2px #ff4444; }
-      80% { text-shadow: 1px 1px #ff0000; }
+      0%, 100% { text-shadow: 2px 2px red; }
+      50% { text-shadow: -2px -2px #ff0000; }
     }
 
     .terminal-box {
       width: 80%;
       max-width: 800px;
-      margin: 30px auto 0;
+      margin: 40px auto;
       background-color: rgba(0, 0, 0, 0.8);
       padding: 20px;
       border: 1px solid #00ff00;
@@ -62,193 +57,28 @@
       font-size: 16px;
       text-align: left;
       overflow: auto;
-      max-height: 300px;
-    }
-
-    .line {
-      display: block;
-      margin-bottom: 8px;
-      white-space: pre;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 20px;
-      background-color: #00ff00;
-      animation: blink 1s step-start infinite;
-      vertical-align: bottom;
-    }
-
-    @keyframes blink {
-      50% { background-color: transparent; }
-    }
-
-    #ascii-art {
       color: #00ff00;
-      text-align: center;
-      font-size: 12px;
-      margin-top: 20px;
-      white-space: pre;
-    }
-
-    /* KOD AKIŞI */
-    .code-stream {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .code-line {
-      position: absolute;
-      white-space: nowrap;
-      font-size: 12px;
-      color: rgba(0, 255, 0, 0.2);
-      animation: scrollCode 12s linear infinite;
-      font-family: monospace;
-    }
-
-    @keyframes scrollCode {
-      0% { top: 100%; }
-      100% { top: -100px; }
-    }
-
-    /* DUMAN EFEKTİ */
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: url('https://i.imgur.com/N7ETzFO.png') repeat;
-      opacity: 0.03;
-      z-index: 1;
-      animation: smoke 60s linear infinite;
-    }
-
-    @keyframes smoke {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- Arka plan kod akışı -->
-<div class="code-stream">
-  <div class="code-line" style="left:5%;">[+] Initializing Red Team environment...</div>
-  <div class="code-line" style="left:25%; animation-delay:2s;">[+] Injecting payload...</div>
-  <div class="code-line" style="left:45%; animation-delay:4s;">[+] Breaching firewall layer...</div>
-  <div class="code-line" style="left:65%; animation-delay:6s;">[+] Extracting credentials...</div>
-  <div class="code-line" style="left:85%; animation-delay:8s;">[+] Deploying remote shell...</div>
-</div>
+  <div class="overlay"></div>
 
-<div class="container">
-  <img src="https://i.hizliresim.com/2x1os93.png" class="logo" alt="Anka Logo" />
-  <div class="glitch">HACKED BY ANKA RED TEAM</div>
+  <div class="content">
+    <div class="glitch">HACKED BY ANKA RED TEAM</div>
 
-  <div class="terminal-box" id="terminalBox">
-    <span class="line" id="line1">[+] Bağlantı başlatılıyor...</span>
-    <span class="line" id="line2"></span>
-    <span class="line" id="line3"></span>
-    <span class="line" id="line4"></span>
-    <span class="line" id="line5"></span>
-    <span class="line" id="line6"></span>
-    <span class="line" id="line7"></span>
-    <span class="line" id="cursorLine"><span class="cursor"></span></span>
+    <div class="terminal-box">
+      [+] Atatürk'ün izinde, siber bağımsızlık için buradayız...<br>
+      [+] Meclis açılış konuşması: aktif.<br>
+      [+] Bağlantı izleniyor...<br>
+      [+] Türk milleti için çalışan siber gücüz.<br>
+    </div>
   </div>
 
-  <pre id="ascii-art"></pre>
-
-  <!-- Fake Password Input -->
-  <div style="margin-top: 20px;">
-    <label for="fake-pass">[!] Güvenlik protokolü doğrulanıyor...<br>Parola giriniz:</label><br>
-    <input type="password" id="fake-pass" style="background:black; color:#00ff00; border:1px solid #00ff00; font-family:monospace; padding:5px; margin-top:10px;">
-    <button onclick="simulateLogin()" style="background:red; color:#fff; border:none; padding:5px 10px; margin-left:10px;">Gönder</button>
-    <p id="login-msg" style="margin-top:10px;"></p>
-  </div>
-</div>
-
-<!-- Arka Plan Müzik -->
-<audio autoplay loop>
-  <source src="https://www.myinstants.com/media/sounds/hackerman.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  // Terminal animasyon
-  const steps = [
-    '[+] Hedef IP: 192.168.1.1',
-    '[+] Port taraması başlatılıyor...',
-    '[OPEN] 21/tcp - FTP',
-    '[OPEN] 22/tcp - SSH',
-    '[OPEN] 80/tcp - HTTP',
-    '[+] Güvenlik açığı tespit edildi: CVE-2023-XXXXX',
-    '[+] Yetkili erişim sağlandı! Anka Red Team bağlantıyı ele geçirdi!'
-  ];
-
-  function typeLine(text, elementId, delay) {
-    setTimeout(() => {
-      let i = 0;
-      const element = document.getElementById(elementId);
-      const interval = setInterval(() => {
-        element.textContent += text[i];
-        i++;
-        if (i >= text.length) clearInterval(interval);
-      }, 40);
-    }, delay);
-  }
-
-  steps.forEach((text, index) => {
-    typeLine(text, `line${index + 2}`, 1000 + index * 1000);
-  });
-
-  // ASCII animasyon
-  const asciiFrames = [
-    `
-    /\\_/\\  
-   ( o.o ) 
-    > ^ <
-    `,
-    `
-    /\\_/\\  
-   ( -.- ) 
-    > ^ <
-    `,
-    `
-    /\\_/\\  
-   ( o_o ) 
-    > ^ <
-    `
-  ];
-
-  let currentFrame = 0;
-  const asciiArt = document.getElementById('ascii-art');
-  setInterval(() => {
-    asciiArt.textContent = asciiFrames[currentFrame];
-    currentFrame = (currentFrame + 1) % asciiFrames.length;
-  }, 500);
-
-  // Sahte şifre ve IP tracer
-  function simulateLogin() {
-    const passField = document.getElementById('fake-pass');
-    const msg = document.getElementById('login-msg');
-    msg.innerHTML = '[...] Parola kontrol ediliyor...';
-    setTimeout(() => {
-      msg.innerHTML = '[+] Giriş başarılı. IP izleme başlatılıyor...';
-      setTimeout(() => {
-        msg.innerHTML += '<br>[SCAN] IP: 85.129.54.12 - Konum: Türkiye / İstanbul';
-        msg.innerHTML += '<br>[TRACE] Kullanıcı davranışları izleniyor...';
-        msg.innerHTML += '<br>[!] Hedef sistem artık kontrolümüzde.';
-      }, 2000);
-    }, 1500);
-  }
-</script>
+  <audio autoplay loop>
+    <source src="Gençliğe Hitabe x Sonne - Rammstein  by ardalemdar.mp3" type="audio/mpeg">
+  </audio>
 
 </body>
 </html>
